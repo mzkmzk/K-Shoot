@@ -1,0 +1,36 @@
+{
+  "name": "k-report",
+  "version": "0.0.8",
+  "description": "Hope this is the best report you used library ",
+  "main": "Public/index.bundle.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzkmzk/K-Report.git"
+  },
+  "keywords": [
+    "Journey"
+  ],
+  "author": "K",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mzkmzk/K-Report/issues"
+  },
+  "homepage": "https://github.com/mzkmzk/K-Report#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-core": "6.9.1",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.14.0",
+    "babel-preset-es2016": "6.11.3",
+    "babel-preset-es2017": "6.14.0",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "webpack": "1.13.1",
+    "eslint": "3.0.1",
+    "eslint-loader": "1.4.0",
+    "eslint-plugin-react": "5.2.2"
+  }
+}
