@@ -7,15 +7,16 @@ var Key_Press = {
     init_key_up: function() {
         document.onkeyup = function(e) {
             e = e || window.event;
-            console.log('放松了' + e.keyCode);
-            Key_Press.key_press[e.keyCode] = false;
+            //console.log('放松了' + e.keyCode);
+            //Global_Data.
+            Global_Data.key_press[Global_Data.guid][e.keyCode] = false;
         }
     },
     init_key_down: function() {
         document.onkeydown = function(e) {
             e = e || window.evnet;
-            console.log('按下了' + e.keyCode);
-            Key_Press.key_press[e.keyCode] = true;
+            //console.log('按下了' + e.keyCode);
+            Global_Data.key_press[Global_Data.guid][e.keyCode] = true;
         }
     },
     init: function(){
