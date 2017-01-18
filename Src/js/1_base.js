@@ -6,7 +6,7 @@ base_1.width = document.body.scrollWidth;
 base_1.height = document.body.scrollHeight;
 var ctx = base_1.getContext('2d');
 var computer_index = Utils.get_url_param( 'computer_index' ) ;
-
+var pk = Utils.get_url_param( 'pk' ) ;
 /**
  * 清除画布
  */
@@ -29,10 +29,12 @@ loop_game();
 
 
 function page_init(){
-    lead = new Lead({
+    leader = new Leader({
         guid: Global_Data.guid,
         team_id: 0
     });
+    Web_Pk.init();
+    Web_Pk.send('get_all_leader' )
     //new Computer();
 }
 
@@ -40,6 +42,11 @@ function check_computer(){
     if ( !computer_index ) return;
     
     window['game_'+computer_index].init();
+}
+
+function check_pk(){
+    if ( !pk ) return;
+
 }
 
 function loop_game(){

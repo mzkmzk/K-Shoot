@@ -9,14 +9,14 @@ var ACTION = [
 var Computer = function(leader_config, computer_config){
     if ( !(this instanceof Computer) ) return new Computer(leader_config, computer_config)
 
-    var lead = new Lead({
+    var leader = new Leader({
             guid: 'computer_'+Global_Data.computer_index,
             team_id: 1
         }),
-        guid = lead.guid
+        guid = leader.guid
 
     Global_Data.computer_index++
-    console.log(lead)
+    console.log(leader)
     //自动移动
     var move_interval = setInterval(function(){
         if ( !Global_Data.leaders[guid] ) {
@@ -24,7 +24,7 @@ var Computer = function(leader_config, computer_config){
             return;
         }
         var action_num  = Utils.get_random_int(0, ACTION.length - 1 );
-        lead[ACTION[action_num]]() * 1000
+        leader[ACTION[action_num]]() * 1000
     },1000/40)
 
     //自动发子弹
@@ -34,7 +34,7 @@ var Computer = function(leader_config, computer_config){
             return;
         }
         var bullet_action_num  = Utils.get_random_int(0, Bullets.TYPE.length - 1 );
-        Bullets.send_bullet( Bullets.TYPE[bullet_action_num], lead.guid)
+        Bullets.send_bullet( Bullets.TYPE[bullet_action_num], leader.guid)
         
     },1000/4)
 }

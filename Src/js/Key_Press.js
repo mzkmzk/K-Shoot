@@ -10,6 +10,7 @@ var Key_Press = {
             //console.log('放松了' + e.keyCode);
             //Global_Data.
             Global_Data.key_press[Global_Data.guid][e.keyCode] = false;
+             Web_Pk.send('key_press_up', { key: e.keyCode } )
         }
     },
     init_key_down: function() {
@@ -17,6 +18,7 @@ var Key_Press = {
             e = e || window.evnet;
             //console.log('按下了' + e.keyCode);
             Global_Data.key_press[Global_Data.guid][e.keyCode] = true;
+            Web_Pk.send('key_press_down', { key: e.keyCode } )
         }
     },
     init: function(){
