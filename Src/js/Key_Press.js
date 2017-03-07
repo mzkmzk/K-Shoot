@@ -9,16 +9,24 @@ var Key_Press = {
             e = e || window.event;
             //console.log('放松了' + e.keyCode);
             //Global_Data.
+            if ( Global_Data.key_press[Global_Data.guid][e.keyCode] === true ){
+            //暂时去掉webpk    Web_Pk.send('key_press_up', { key: e.keyCode } )
+            }
             Global_Data.key_press[Global_Data.guid][e.keyCode] = false;
-             Web_Pk.send('key_press_up', { key: e.keyCode } )
+            
         }
     },
     init_key_down: function() {
         document.onkeydown = function(e) {
             e = e || window.evnet;
             //console.log('按下了' + e.keyCode);
+            //当按键变化时才发送webscocket
+            if ( Global_Data.key_press[Global_Data.guid][e.keyCode] === false ){
+              //暂时去掉webpk   Web_Pk.send('key_press_down', { key: e.keyCode } )
+            }
             Global_Data.key_press[Global_Data.guid][e.keyCode] = true;
-            Web_Pk.send('key_press_down', { key: e.keyCode } )
+
+            
         }
     },
     init: function(){

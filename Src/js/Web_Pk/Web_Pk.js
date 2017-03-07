@@ -34,9 +34,16 @@ var Web_Pk = {
      */ 
     subscribe: function(){
         Web_Pk.get_record().subscribe('subscribeJS', function(result){
-            console.log('subscribe '+result);
+
             var result = JSON.parse(result),
                 leader_config;
+            
+             if ( result.guid === Global_Data.guid 
+                  && result.action !== 'key_press_up'
+                  && result.action !== 'key_press_down'
+                ) return
+
+            console.log('subscribe '+ JSON.stringify(result));
 
             if (result.action === 'key_press_up'){
                 Global_Data.key_press[result.guid][result.data.key] = false;

@@ -1,3 +1,6 @@
+import Leader from '../Leader'
+import Utils from '../Utils'
+
 var ACTION = [
     //'more_left',
     'more_right',
@@ -11,7 +14,9 @@ var Computer = function(leader_config, computer_config){
 
     var leader = new Leader({
             guid: 'computer_'+Global_Data.computer_index,
-            team_id: 1
+            team_id: 1,
+            x: Utils.get_random_int(0, base_1.width   ),
+            y: Utils.get_random_int(0, base_1.height  )
         }),
         guid = leader.guid
 
@@ -38,3 +43,5 @@ var Computer = function(leader_config, computer_config){
         
     },1000/4)
 }
+
+export default Computer

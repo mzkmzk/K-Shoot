@@ -2,8 +2,16 @@
  * Created by maizhikun on 16/6/1.
  */
 var base_1 = document.getElementById('base_1');
-base_1.width = document.body.scrollWidth;
-base_1.height = document.body.scrollHeight;
+var a = document.documentElement.clientWidth;
+var b =  document.documentElement.clientHeight ;
+console.log(a);
+console.log(b);
+
+base_1.width =  /*暂时去掉webpk300 ||*/ a;
+base_1.height =  /*300 ||*/  b;
+
+
+
 var ctx = base_1.getContext('2d');
 var computer_index = Utils.get_url_param( 'computer_index' ) ;
 var pk = Utils.get_url_param( 'pk' ) ;
@@ -33,8 +41,8 @@ function page_init(){
         guid: Global_Data.guid,
         team_id: 0
     });
-    Web_Pk.init();
-    Web_Pk.send('get_all_leader' )
+    //Web_Pk.init(); //暂时去掉webpk
+   // Web_Pk.send('get_all_leader' )//暂时去掉webpk
     //new Computer();
 }
 

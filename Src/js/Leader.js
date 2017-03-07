@@ -14,11 +14,11 @@ var Leader = function(leader_config, guid,team_id){
     /**
      * x坐标
      */
-    this.x = leader_config.x || 15;
+    this.x = leader_config.x || Utils.get_random_int(0, base_1.width   ) || 15;
     /**
      * y坐标
      */
-    this.y = leader_config.y || document.body.scrollHeight - 15;
+    this.y = leader_config.y || Utils.get_random_int(0, base_1.height   ) || base_1.height - 15 //document.body.scrollHeight - 15;
     /**
      * 半径
      */
@@ -68,7 +68,7 @@ var Leader = function(leader_config, guid,team_id){
      * 通知其他玩家
      */
      if ( !leader_config.is_not_send  ) {
-        Web_Pk.send('leader_init', { leader_config: leader_config } )
+        //Web_Pk.send('leader_init', { leader_config: leader_config } )
      }
     
     //return Global_Data.leaders[this.guid];
