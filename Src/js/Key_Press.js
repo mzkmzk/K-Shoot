@@ -34,3 +34,5 @@ var Key_Press = {
         this.init_key_up();
     }
 }
+
+export default Key_Press

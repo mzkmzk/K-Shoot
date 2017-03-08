@@ -1,3 +1,7 @@
+import Team from './Team'
+import Utils from './Utils'
+import _canvas from './_canvas' 
+var ctx = _canvas.ctx
 var Leader = function(leader_config, guid,team_id){
     /**
      * 角色唯一标识
@@ -89,6 +93,7 @@ Leader.prototype.draw_screen = function(){
  * 绘制小球
  */
 Leader.prototype.draw_ball = function(){
+    var ctx = _canvas.ctx
     ctx.beginPath();
     ctx.fillStyle = this.color;
     ctx.arc(this.x +this.radius, this.y+this.radius, 10, 0, Math.PI * 2, true);
@@ -142,3 +147,5 @@ Leader.prototype.more = function() {
 Leader.prototype.get_lead = function( guid ) {
     return 
 }
+
+export default Leader

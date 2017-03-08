@@ -1,3 +1,5 @@
+import Utils from './Utils'
+
 window.Global_Data = {
     guid: Utils.get_guid(),
     leaders: {},
@@ -11,3 +13,5 @@ window.Global_Data = {
          //console.log('Global_Data.loop_game')
     }
 }
+
+export default window.Global_Data

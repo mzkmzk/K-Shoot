@@ -1,5 +1,6 @@
 import Leader from '../Leader'
 import Utils from '../Utils'
+import Bullets from '../Bullets'
 
 var ACTION = [
     //'more_left',

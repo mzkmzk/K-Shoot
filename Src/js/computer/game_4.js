@@ -1,3 +1,5 @@
+import Game from './Game'
+
 var game_4 = new Game({
     computer_array: [
         {
@@ -14,3 +16,5 @@ var game_4 = new Game({
         }
     ]
 })
+
+export default game_4

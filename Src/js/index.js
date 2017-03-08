@@ -1,27 +1,22 @@
-/**
- * Created by maizhikun on 16/6/1.
- */
-var base_1 = document.getElementById('base_1');
-var a = document.documentElement.clientWidth;
-var b =  document.documentElement.clientHeight ;
-console.log(a);
-console.log(b);
+import Global_Data from './Global_Data'
+import Utils from './Utils'
+import Key_Press from './Key_Press'
+import Leader from './Leader'
+import _canvas from './_canvas'
 
-base_1.width =  /*暂时去掉webpk300 ||*/ a;
-base_1.height =  /*300 ||*/  b;
+import game_1 from './computer/game_1'
+import game_2 from './computer/game_2'
+import game_3 from './computer/game_3'
+import game_4 from './computer/game_4'
+import game_5 from './computer/game_5'
 
 
 
-var ctx = base_1.getContext('2d');
-var computer_index = Utils.get_url_param( 'computer_index' ) ;
-var pk = Utils.get_url_param( 'pk' ) ;
-/**
- * 清除画布
- */
-function clear_base_1 (){
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, base_1.width, base_1.height); //还原掉上次的白色球
-}
+var computer_index = Utils.get_url_param( 'computer_index' ),
+    game_array = [, game_1, game_2, game_3, game_4, game_5],
+    pk = Utils.get_url_param( 'pk' ),
+    leader
+
 
 //clear_base_1();
 
@@ -33,14 +28,16 @@ Utils.set_aop();
 
 page_init();
 check_computer();
-loop_game();
+
 
 
 function page_init(){
+    _canvas.init()
     leader = new Leader({
         guid: Global_Data.guid,
         team_id: 0
     });
+    
     //Web_Pk.init(); //暂时去掉webpk
    // Web_Pk.send('get_all_leader' )//暂时去掉webpk
     //new Computer();
@@ -48,8 +45,9 @@ function page_init(){
 
 function check_computer(){
     if ( !computer_index ) return;
-    
-    window['game_'+computer_index].init();
+;
+
+    game_array[ computer_index ].init();
 }
 
 function check_pk(){
@@ -57,14 +55,9 @@ function check_pk(){
 
 }
 
-function loop_game(){
-    
-    clear_base_1()
-    Global_Data.loop_game()
-    //lead.draw_screen()
-    Bullets.draw_screen()
-    window.setTimeout(loop_game, 1000/40);
-}
+/**
+ * 清除画布
+ */
 
 
 

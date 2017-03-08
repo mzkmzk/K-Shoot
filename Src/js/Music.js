@@ -48,3 +48,5 @@ var Music = {
         return returnExtension;
     }
 }
+
+export default Music

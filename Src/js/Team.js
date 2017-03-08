@@ -1,3 +1,6 @@
+import COLOR from './COLOR'
+import Utils from './Utils'
+
 var Team = {
     join_team: function(guid, team_id){
         if ( Global_Data.teams[team_id] ) {
@@ -26,3 +29,5 @@ var Team = {
         return false;
     }
 }
+
+export default Team

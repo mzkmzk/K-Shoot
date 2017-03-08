@@ -1,3 +1,5 @@
+import Computer from './Computer'
+
 var Game = function(game_config){
     this.computer_array = game_config.computer_array || [];
 }
@@ -7,3 +9,5 @@ Game.prototype.init = function(){
         new Computer(this.computer_array[i])
     }
 }
+
+export default Game

@@ -10,7 +10,7 @@ const debug = process.env.NODE_ENV !== 'production';
 
 
 
-var entries = getEntry('src/js/index.js');//搜索主js
+var entries = getEntry('Src/js/index.js');//搜索主js
 //var entries = getEntry('src/js/**/*.js', 'src/js/');//搜索所有主js
 entries['lib'] =[]; //说明lib模块
 
@@ -80,12 +80,12 @@ var config = {
 };
 
 
-var pages = Object.keys(getEntry('src/**/*.html'));
+var pages = Object.keys(getEntry('Src/**/*.html'));
 pages.forEach(function(pathname) {
   var conf = {
     filename: '' + pathname + '.html', //生成的html存放路径，相对于path
-    template: 'src/' + pathname + '.html', //html模板路径
-    inject: false, //js插入的位置，true/'head'/'body'/false
+    template: 'Src/html/' + pathname + '.html', //html模板路径
+    inject: true, //js插入的位置，true/'head'/'body'/false
     /*
      * 压缩这块，调用了html-minify，会导致压缩时候的很多html语法检查问题，
      * 如在html标签属性上使用{{...}}表达式，很多情况下并不需要在此配置压缩项，
@@ -97,6 +97,7 @@ pages.forEach(function(pathname) {
       collapseWhitespace: false //删除空白符与换行符
      }
   };
+  console.log(config.entry)
   if (pathname in config.entry) {
     //conf.favicon = path.resolve(__dirname, 'src/imgs/favicon.ico');
     conf.inject = 'body';

@@ -1,10 +1,15 @@
 {
-	"presets": [
-		"es2015",
-		"es2016",
-		"es2017",
-	],
+    "presets": [
+        'es2015',
+    ],
     "plugins" : [
-         "transform-object-assign"
+         "transform-object-assign",
+         ["transform-es2015-modules-commonjs", { 
+            "loose": true,
+             "allowTopLevelThis": true
+          }],
+         ["transform-es2015-classes", { "loose": true }],
+         "transform-es3-property-literals",
+         "transform-es3-member-expression-literals"
     ],
 }

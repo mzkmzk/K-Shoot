@@ -8,3 +8,5 @@ var COLOR = [
     '#0000FF', //常用色系 - 蓝色
     '#FF8C69' //浅色系 - 鲜肉色
 ]
+
+export default COLOR
