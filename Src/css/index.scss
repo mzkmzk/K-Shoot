@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+}
+
+canvas{
+    position: absolute;
+}
+
+button{
+    //position: absolute;
+}
+
+.display_handle{
+    position: absolute;
+    z-index: 2;
+    button{
+        margin: 10px;
+    }
+}
+
+.game_num_select{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    button{
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
+.hidden{
+    display: none ;
+}

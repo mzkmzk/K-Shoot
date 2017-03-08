@@ -72,6 +72,25 @@ var Utils = {
             return ret;
           }
         }
+    },
+    type: function type(obj) {
+        return (obj === null || obj === undefined) ? String(obj) : Object.prototype.toString.call(obj).match(/\[object (\w+)\]/)[1].toLowerCase()
+    },
+    each: function(obj, iterator, context) {
+        var i, key
+        if (this.type(obj) === 'number') {
+            for (i = 0; i < obj; i++) {
+                iterator(i, i)
+            }
+        } else if (obj.length === +obj.length) {
+            for (i = 0; i < obj.length; i++) {
+                if (iterator.call(context, obj[i], i, obj) === false) break
+            }
+        } else {
+            for (key in obj) {
+                if (iterator.call(context, obj[key], key, obj) === false) break
+            }
+        }
     }
 }
 

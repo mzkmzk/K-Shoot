@@ -28,22 +28,28 @@ var config = {
   module: {
     loaders: [ //加载器
       {
-              test: /\.js$/,
-              loaders: ['es3ify','babel']
-              //exclude: __dirname + '/node_modules',
-              //include: __dirname + '/Src',
-          },
+          test: /\.js$/,
+          loaders: ['es3ify','babel']
+          //exclude: __dirname + '/node_modules',
+          //include: __dirname + '/Src',
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass'
+        // loader: ExtractTextPlugin.extract('style', 'css','sass')
+      },
           /*{
               test: /\.js$/,
               loader: 'es3ify'
               //exclude: __dirname + '/node_modules',
               //include: __dirname + '/Src',
           },*/
-      {
+      /*{
         test: /\.css$/,
         //loaders: ['style','css']
         loader: ExtractTextPlugin.extract('style', 'css')
-      }, {
+      },*/ 
+      {
         test: /\.(html|tpl)$/,
         loader: 'html'
         //loader: "html?-minimize" //避免压缩html,https://github.com/webpack/html-loader/issues/50
@@ -69,7 +75,7 @@ var config = {
       chunks: chunks,
       //minChunks: chunks.length // 提取所有entry共同依赖的模块
     }),
-    new ExtractTextPlugin('css/[name].css'), //单独使用link标签加载css并设置路径，相对于output配置中的publickPath
+    //new ExtractTextPlugin('css/[name].css'), //单独使用link标签加载css并设置路径，相对于output配置中的publickPath
     debug ? function() {} : new UglifyJsPlugin({ //压缩代码
       compress: {
         warnings: false
